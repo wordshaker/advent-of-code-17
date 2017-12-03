@@ -1,6 +1,6 @@
 var fileStream = require("fs")
 
-module.exports = (inputFile ) => {
+module.exports = (inputFile, addEquivalentNeighbors) => {
    return addEquivalentNeighbors(inputFile, (result) => {
         return result 
     })
