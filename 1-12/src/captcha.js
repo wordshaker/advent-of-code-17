@@ -1,14 +1,7 @@
 var fileStream = require("fs")
 
-module.exports = (inputFile, addEquivalentNeighbors) => {
-   return addEquivalentNeighbors(inputFile, (result) => {
-        return result 
-    })
-}
-
-function addEquivalentNeighbors(inputFile, done) {
     var result = []
-    fileStream.readFile(inputFile, 'utf8', (err, file) => {
+    fileStream.readFile(process.argv[2], 'utf8', (err, file) => {
         if (err) { throw err }
         var numbers = file.split('')
         var result = []
@@ -18,7 +11,5 @@ function addEquivalentNeighbors(inputFile, done) {
             }
             return result.push(0)
         })
-        //    return result.reduce((accumulator, currentValue) => Number(accumulator) + Number(currentValue))
-        done(result.reduce((accumulator, currentValue) => Number(accumulator) + Number(currentValue)))
+        console.log(result.reduce((accumulator, currentValue) => Number(accumulator) + Number(currentValue)))
     })
-}
